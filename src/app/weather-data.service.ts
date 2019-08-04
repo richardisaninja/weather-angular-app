@@ -6,16 +6,16 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class WeatherDataService {
-  apiKey = '37ac4cc84a0e23f17b6986f7071ea561';
+  apiKey = '6306ad3f27c88879e641bd2b6569f2fd';
   url;
 
   constructor(private http:HttpClient) {
-    this.url='http://api.openweathermap.org/data/2.5/forecast?';
+    this.url='https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/';
    }
 
   getWeather(lat, lon){
     
-    return this.http.get(this.url+'lat='+lat+'&'+'lon='+lon+'&APPID='+this.apiKey+'&units=imperial')
+    return this.http.get(this.url+this.apiKey+'/'+lat+','+lon)
     
   }
 }
