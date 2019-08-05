@@ -1,16 +1,22 @@
 <h1>Temp: {{weather.currently.temperature}}</h1>
+<h1>Temp: {{weather.currently.time*1000 | date:'medium' }}</h1>
 
 
-<ul>
-    <li *ngFor="let data of weather.hourly.data">
-            <p> {{ data.time}} </p>
-            <p>  {{data.icon}} </p>
+
+<ul *ngFor="let data of weather.daily.data">
+    
+    <li class="weather" [ngClass]="data.icon">
+            <h2> {{ data.time*1000 | date:'short' }} </h2>
+            <h2> {{ data.apparentTemperatureHigh }} </h2>
+            <p class="icon">  {{data.icon}} </p>
            
 
     </li>
     
 </ul>
-    
+
+
+
 
 
 

@@ -8,6 +8,9 @@ import { WeatherDataService } from '../weather-data.service'
   styleUrls: ['./home.component.sass']
 })
 export class HomeComponent implements OnInit {
+
+
+
 //get location
 
 
@@ -35,7 +38,10 @@ export class HomeComponent implements OnInit {
 
   constructor(private data: WeatherDataService) { }
 
+
   ngOnInit() {
+   
+
     //call location service
     navigator.geolocation.getCurrentPosition(this.success, this.error, this.options);
     let lon = localStorage.getItem('lon');
