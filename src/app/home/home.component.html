@@ -1,20 +1,34 @@
-<h1>Temp: {{weather.currently.temperature}}</h1>
-<h1>Temp: {{weather.currently.time*1000 | date:'medium' }}</h1>
 
 
-
-<ul *ngFor="let data of weather.daily.data">
+<div class="body" [ngClass]="weather.currently.icon">
+    <div class="">{{weather.currently.icon}}</div>
+    <div class="">{{weather.currently.time*1000 | date}}</div>
+    <div class="">{{weather.currently.icon}}</div>
     
-    <li class="weather" [ngClass]="data.icon">
-            <h2> {{ data.time*1000 | date:'short' }} </h2>
-            <h2> {{ data.apparentTemperatureHigh }} </h2>
+    {{weather.currently.time*1000}}
+    Current Temp:{{weather.currently.temperature}}
+    Pressure:{{weather.currently.pressure}}
+    Wind Speed:{{weather.currently.windSpeed}}
+    Apparent Temp: {{weather.currently.apparentTemperature}}
+    humidiy: {{weather.currently.humidity}}
+    visibility:{{weather.currently.visibility}} mic
+    humidiy: {{weather.currently.uvIndex}}
+
+
+
+<div class="" *ngFor="let data of weather.daily.data">
+    
+    <div class="weather" [ngClass]="data.icon">
+            <p> {{ data.time*1000 | date:'EEE' }}<br>{{data.time*1000 | date: ' MMM d'}} <p>
+            <p> {{ data.apparentTemperatureHigh }} </p>
             <p class="icon">  {{data.icon}} </p>
            
 
-    </li>
+            </div>
     
-</ul>
+</div>
 
+</div>
 
 
 
