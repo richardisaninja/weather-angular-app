@@ -13,9 +13,46 @@
     humidiy: {{weather.currently.humidity}}
     visibility:{{weather.currently.visibility}} mic
     humidiy: {{weather.currently.uvIndex}}
+    
+    <p class="date">{{weather.currently.time*1000 | date:'MMM d'}}</p>
+    <div class="day-temp">
+        <div class="info col-3">
+            <h1>{{weather.currently.temperature | number:'1.0-0'}}&#xb0;F</h1>
+        </div>
+        <div class="info col-2">
+                <h3>
+                    <span class=""> {{weather.currently.summary}}</span>
+                </h3>
+        
+        </div>
+        <div class="info col-2">
+                <h3>
+                    Precipitation
+    
+                    <span class=""> {{weather.currently.precipProbability | number:'1.0-0'}}%</span>
+                </h3>
+        
+        </div>
+        <div class="info col-2">
+                <h3>
+                    Wind<br>
+                    <span class="h4-center"> {{weather.currently.precipProbability | number:'1.0-0'}} km/h</span>
+                </h3>
+        
+        </div>
+        <div class="info col-2">
+                <h3>
+                    Humidity<br>
+                    <span class="h4-center"> {{weather.currently.humidity | number:'1.0-0'}}%</span>
+                </h3>
+        
+        </div>
+        
+    </div>
 
 
 
+<!--
 <div class="" *ngFor="let data of weather.daily.data">
     
     <div class="weather" [ngClass]="data.icon">
@@ -27,10 +64,51 @@
             </div>
     
 </div>
-
+-->
 </div>
 
+ 
+    <div class="hourly-section" *ngFor="let data of weather.hourly.data | slice:0:24; ">
+            <div class="col-1 dates-div list-group">
+                {{ data.time*1000 | date:'h:mm a'}}
+                <img class="icon" src="assets/img/SVG/{{data.icon}}.svg">
+                {{ data.temperature |  number:'1.0-0' }}&#xb0;F
+            </div>
+          
+    </div>
+<br>
+<br>
 
+   
+<br>
+<div class="col-12 "></div>
+<hr>
+<div class="col-12 day-info">
+    <div class="col-4">
+        <h3>Apparent Temperature</h3>
+            <div> {{weather.currently.apparentTemperature}} </div><br><br>
+            <h3>Humidity:</h3>
+            <div> {{weather.currently.humidity }} </div><br><br>
+        <h3>Summary:</h3>
+            <div>{{weather.currently.summary}}</div><br>
+    </div>
+    <div class="col-4">
+            <h3>Dew Point:</h3>
+            <div> {{weather.currently.dewPoint}}&#xb0;F </div><br><br>
+            <h3>Precipitation Probability:</h3>
+            <div>{{weather.currently.precipProbability}}%</div><br><br>
+            <h3>Nearest Storm Disance:</h3>
+            <div>{{weather.currently.nearestStormDistance}} mi.</div><br><br>
 
-
-
+    </div>
+    <div class="col-4">
+            <h3>UV Index</h3>
+            <div>{{weather.currently.uvIndex}} in</div><br><br>
+            <h3>Wind</h3>
+            <div>{{ weather.currently.windSpeed }} mi/h</div><br><br>
+            <h3>Visibility</h3>
+            <div>{{weather.currently.visibility}}</div>
+        
+    </div>
+</div>
+<hr>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherDataService } from '../weather-data.service'
-
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-home',
@@ -40,7 +40,8 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit() {
-   
+    //for pagination
+    
 
     //call location service
     navigator.geolocation.getCurrentPosition(this.success, this.error, this.options);
