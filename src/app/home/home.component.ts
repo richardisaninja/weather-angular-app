@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
 
 
   
-  weather: Object;
+  weather: any;
 
   constructor(private data: WeatherDataService) { }
 
